@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.c": "c",
+        "limine.h": "c",
+        "nighterm.h": "c",
+        "vga.h": "c",
+        "printf.h": "c",
+        "serial.h": "c",
+        "stdbool.h": "c",
+        "memory": "c",
+        "stdint.h": "c"
+    }
+}
