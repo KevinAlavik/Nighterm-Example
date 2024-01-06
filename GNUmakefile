@@ -58,7 +58,8 @@ override CFLAGS += \
     -mno-red-zone \
     -I src \
     -I limine \
-    -I src/nighterm
+    -I src/nighterm \
+    -g
  
 # Internal C preprocessor flags that should not be changed by the user.
 override CPPFLAGS := \
@@ -77,7 +78,8 @@ override LDFLAGS += \
     --no-dynamic-linker \
     -z text \
     -z max-page-size=0x1000 \
-    -T linker.ld
+    -T linker.ld \
+    -g
  
 # Internal nasm flags that should not be changed by the user.
 override NASMFLAGS += \

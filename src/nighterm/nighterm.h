@@ -56,6 +56,8 @@ enum nighterm_init_return_codes {
     NIGHTERM_SUCCESS = 0
 };
 
+const char* nighterm_get_error_name(int errorCode);
+
 struct nighterm_fbinfo {
     void *addr;
     uint64_t width;

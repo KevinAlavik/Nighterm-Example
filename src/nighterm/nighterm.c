@@ -165,3 +165,26 @@ void nighterm_write(char ch)
         break;
     }
 }
+
+const char* nighterm_get_error_name(int errorCode) {
+    switch (errorCode) {
+        case NIGHTERM_NO_FONT_SUPPLIED:
+            return "NIGHTERM_NO_FONT_SUPPLIED";
+        case NIGHTERM_FONT_INVALID:
+            return "NIGHTERM_FONT_INVALID";
+        case NIGHTERM_INVALID_FRAMEBUFFER_ADDRESS:
+            return "NIGHTERM_INVALID_FRAMEBUFFER_ADDRESS";
+        case NIGHTERM_INVALID_FRAMEBUFFER_SIZE:
+            return "NIGHTERM_INVALID_FRAMEBUFFER_SIZE";
+        case NIGHTERM_INVALID_FRAMEBUFFER_PITCH:
+            return "NIGHTERM_INVALID_FRAMEBUFFER_PITCH";
+        case NIGHTERM_INVALID_FRAMEBUFFER_BPP:
+            return "NIGHTERM_INVALID_FRAMEBUFFER_BPP";
+        case NIGHTERM_MALLOC_IS_NULL:
+            return "NIGHTERM_MALLOC_IS_NULL";
+        case NIGHTERM_SUCCESS:
+            return "NIGHTERM_SUCCESS";
+        default:
+            return "Unknown error code";
+    }
+}
