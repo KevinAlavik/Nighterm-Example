@@ -21,11 +21,13 @@ static volatile struct limine_framebuffer_request framebuffer_request = {
 void _start(void) {
     dprintf("\033c");
 
-    static struct limine_framebuffer framebuffer_response;
+    static struct limine_framebuffer* framebuffer;
     struct limine_file* font = mod_request.response->modules[0];
     char psf2buf = font->address;
     psf2Hdr hdr = *(psf2Hdr *)font->address;
     psf2buf += hdr.headerSize;
+
+    framebuffer = framebuffer_request.response->framebuffers[0];
 
     init_idt();
     dprintf("Initialized IDT\n");
@@ -33,11 +35,11 @@ void _start(void) {
     dprintf("* Loaded %u module(s)\n", mod_request.internal_module_count + 1);
     
     int nstatus = nighterm_initialize(font->address,
-                framebuffer_response.address,
-                framebuffer_response.width,
-                framebuffer_response.height,
-                framebuffer_response.pitch,
-                framebuffer_response.bpp,
+                framebuffer->address,
+                framebuffer->width,
+                framebuffer->height,
+                framebuffer->pitch,
+                framebuffer->bpp,
                 NULL);
 
     dprintf("Initialized Nighterm with status: %s", nighterm_get_error_name(nstatus));
